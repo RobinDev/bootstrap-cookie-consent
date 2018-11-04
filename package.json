@@ -1,0 +1,42 @@
+{
+  "name": "bootstrap-cookie-consent",
+  "version": "0.0.1",
+  "description": "Simple and light Boostrap banner and modal to manage cookies like the cnil advices it (RGPD)",
+  "author": "Robin D. <contact@robin-d.fr>",
+  "license": "MIT",
+  "main": "dist/bootstrap-cookie-consent.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "start": "webpack-dev-server --inline --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobinDev/bootstrap-cookie-consent.git"
+  },
+  "keywords": [
+    "gdpr",
+    "rgpd",
+    "cookie",
+    "consent",
+    "cnil"
+  ],
+  "bugs": {
+    "url": "https://github.com/RobinDev/bootstrap-cookie-consent/issues"
+  },
+  "homepage": "https://www.robin-d.fr/",
+  "dependencies": {
+    "cookie-consent-api": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "babel-preset-env": "^1.7.0",
+    "config": "^1.30.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
