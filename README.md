@@ -1,6 +1,6 @@
 # Be compliant to GDPR (rgpd) like CNIL ask it
 
-##Table of contents
+## Table of contents
 * [Introduction](#introduction)
 * [Installation](#installation)
     * [Packagist](https://packagist.org/packages/ropendev/curl)
@@ -9,12 +9,12 @@
 * [License](#license)
 * [Contributors](#contributors)
 
-##Introduction
+## Introduction
 
 This small bootstrap/jquery plugin permits to be compliant to GDPR (aka rgpd) like CNIL (France) ask.
 Extend [`atillay/cookie-consent-api`](https://github.com/atillay/cookie-consent-api).
 
-##Installation
+## Installation
 
 [Composer](http://getcomposer.org) is recommended for installation.
 
@@ -23,11 +23,11 @@ In one command line :
 npm install bootstrap-cookie-consent
 ```
 
-##Usage
+## Usage
 
 See `dist/demo.html`
 
-##Documentation
+## Documentation
 
 To custom it :
 
@@ -59,7 +59,7 @@ npm run-script start
 
 MIT (see the `LICENSE` file for details)
 
-##Contributors
+## Contributors
 
 * Original author : [Robin - SEO](https://www.robin-d.fr/).
 * ...
