@@ -3,7 +3,7 @@
 ## Table of contents
 * [Introduction](#introduction)
 * [Installation](#installation)
-    * [Packagist](https://packagist.org/packages/ropendev/curl)
+    * [npm](https://www.npmjs.com/package/bootstrap-cookie-consent)
 * [Usage](#usage)
 * [Documentation](#documentation)
 * [License](#license)
@@ -15,8 +15,6 @@ This small bootstrap/jquery plugin permits to be compliant to GDPR (aka rgpd) li
 Extend [`atillay/cookie-consent-api`](https://github.com/atillay/cookie-consent-api).
 
 ## Installation
-
-[Composer](http://getcomposer.org) is recommended for installation.
 
 In one command line :
 ```bash
