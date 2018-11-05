@@ -3,11 +3,9 @@
  * @author Robin D https://www.robin-d.fr/
  * @license The MIT License (MIT)
  */
-//import 'cookie-consent-api';
-//var CookieConsentApi = require('../node_modules/cookie-consent-api/src/index.js');
-import '../node_modules/cookie-consent-api/src/index.js';
+import CookieConsentApi from '../node_modules/cookie-consent-api/src/index.js';
 
-class BootstrapCookieConsent extends CookieConsentApi
+class BootstrapCookieConsent
 {
 
     constructor(conf = {})
@@ -22,21 +20,22 @@ class BootstrapCookieConsent extends CookieConsentApi
             'more_info_label' : 'En savoir plus',
             'details_title'   : 'Vie Privée',
             'details_text'    : 'Vous pouvez accepter ou refuster l\'utilisation sur ce site de certains services.',
-            services: []
+            'checkbox_class'  : 'switch-sm',
+            services: [],
+            services_descr: {}
         };
 
-        super(conf);
+        //super(conf);
 
         this._conf = Object.assign({}, defaultConf, conf);
-        //this.cookieConsent = new CookieConsentApi(this._conf);
 
-        //if (this.cookieConsent.isAllConfigured() == false) {
-        if (super.isAllConfigured() == false) {
+        this.cookieConsent = new CookieConsentApi(this._conf);
+
+        if (this.cookieConsent.isAllConfigured() == false) {
             this._showBanner();
         }
 
-        //this.cookieConsent.on('allConfigured', ()=>{
-        super.on('allConfigured', ()=>{
+        this.cookieConsent.on('allConfigured', ()=>{
             this._hideBanner();
         });
 
@@ -61,8 +60,7 @@ class BootstrapCookieConsent extends CookieConsentApi
         $(document.body).prepend(banner);
 
         $('#'+this._conf.accept_id).on('click', ()=>{
-            //this.cookieConsent.acceptAll();
-            super.acceptAll();
+            this.cookieConsent.acceptAll();
             this._hideBanner();
         });
     }
@@ -78,10 +76,9 @@ class BootstrapCookieConsent extends CookieConsentApi
         modal += '<tbody>';
 
         this._conf.services.forEach((elem)=>{
-            modal += '<tr><td>' + elem +'</td><td class="text-center">';
-            modal += '<span class="switch"><input type="checkbox" class="switch-sm" id="switch-'+ elem +'"'
-            //modal +=(this.cookieConsent.isAccepted(elem) ? ' checked': '')
-            modal +=(super.isAccepted(elem) ? ' checked': '')
+            modal += '<tr><td>' + elem + (elem in this._conf.services_descr ? '<br><small>'+this._conf.services_descr[elem]+'</small>':'') +'</td><td class="text-center">';
+            modal += '<span class="switch"><input type="checkbox" class="' + this._conf.checkbox_class +'" id="switch-'+ elem +'"'
+            modal +=(this.cookieConsent.isAccepted(elem) ? ' checked': '')
             modal += '><label for="switch-'+ elem +'"></label></span>';
             modal += '</td></tr>';
         });
@@ -92,14 +89,10 @@ class BootstrapCookieConsent extends CookieConsentApi
 
         this._conf.services.forEach((elem)=>{
             $('#switch-'+ elem).change(()=>{
-                    console.log('change');
                 if ($('#switch-'+ elem).is(":checked")) {
-                    console.log('checked');
-                    //this.cookieConsent.accept(elem);
-                    super.accept(elem);
+                    this.cookieConsent.accept(elem);
                 } else {
                     this.cookieConsent.refuse(elem);
-                    super.refuse(elem);
                 }
             });
         });

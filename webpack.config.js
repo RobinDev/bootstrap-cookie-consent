@@ -5,7 +5,10 @@ var MinifyPlugin = require("babel-minify-webpack-plugin");
 
 var config = {
     entry: './src/BootstrapCookieConsent.js',
-
+     // entry: {
+      //  index: './src/BootstrapCookieConsent.js',
+        // cookieconsentapi: './node_modules/cookie-consent-api/src/index.js'
+     // },
     output: {
         library: 'BootstrapCookieConsent',
         libraryTarget: 'umd',

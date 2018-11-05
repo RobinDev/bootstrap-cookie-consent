@@ -23,7 +23,30 @@ npm install bootstrap-cookie-consent
 
 ## Usage
 
-See `dist/demo.html`
+See `dist/demo.html` :
+
+```html
+<!-- Youtube player example -->
+<div data-cookie-consent="YouTube">
+    <img src="https://img.youtube.com/vi/R4lZyXjGLRs/0.jpg" width="560" height="315">
+    <!--if-consent
+        <iframe src="https://www.youtube.com/embed/R4lZyXjGLRs" width="560" height="315" style="background:#000;border:0;"></iframe>
+    endif-->
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function()
+{
+    new BootstrapCookieConsent({
+        services: ['StatistiquesAnonymes', 'YouTube']
+        services_descr: [
+            'StatistiquesAnonymes' : 'Nous permet d\'améliorer le site en fonction de son utilisation',
+            'YouTube': 'Affiche les vidéos du service youtube.com'
+        ]
+    });
+});
+</script>
+```
 
 ## Documentation
 
@@ -31,6 +54,10 @@ To custom it :
 
 ```js
 new BootstrapCookieConsent({
+
+    services: [],
+
+    services_descr: [],
     'show_selector'   : '.cc',
     'accept_id'       : 'accept-cookie',
     'banner_text'     : 'Ce site utilise des services tiers susceptible de vous déposer un cookie. Pour une navigation optimale, acceptez-vous de les utiliser sur ce site ?',
@@ -40,17 +67,20 @@ new BootstrapCookieConsent({
     'more_info_label' : 'En savoir plus',
     'details_title'   : 'Vie Privée',
     'details_text'    : 'Vous pouvez accepter ou refuster l\'utilisation sur ce site de certains services.',
-    services: ['googleAnalytics', 'youtube']
+    'checkbox_class'  : 'custom-control-input',
     cookieName: 'cookie_consent_settings', // From cookie-consent-api
     cookieDuration: 365,
     cookieDomain: null,
 });
 ```
 
-To make the demo work
+Other commands :
 
 ```bash
+#To make the demo work
 npm run-script start
+#To Build the file
+npm run-script build
 ```
 
 ## License
@@ -59,6 +89,6 @@ MIT (see the `LICENSE` file for details)
 
 ## Contributors
 
-* Original author : [Robin - SEO](https://www.robin-d.fr/).
+* Original author : [from the Alps Mountain](https://www.robin-d.fr/).
 * ...
 

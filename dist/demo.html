@@ -13,24 +13,34 @@
 <body>
 
 <!-- Youtube player example -->
-<div data-cookie-consent="youtube">
+<div data-cookie-consent="YouTube">
     <img src="https://img.youtube.com/vi/R4lZyXjGLRs/0.jpg" width="560" height="315">
     <!--if-consent
         <iframe src="https://www.youtube.com/embed/R4lZyXjGLRs" width="560" height="315" style="background:#000;border:0;"></iframe>
     endif-->
 </div>
 
+
+<div data-cookie-consent="StatistiquesAnonymes">
+    Revoir votre décision concernant la gestion de votre vie privée : acceptez l'utilisation de données anonymes.
+    <!--if-consent
+        <iframe src="https://www.youtube.com/embed/R4lZyXjGLRs" width="560" height="315" style="background:#000;border:0;"></iframe>
+    endif-->
+</div>
 <button class="cc">Open cookie consent settings</button>
 
 <script>
 document.addEventListener('DOMContentLoaded', function()
 {
     new BootstrapCookieConsent({
-        services: ['googleAnalytics', 'youtube']
+        services: ['StatistiquesAnonymes', 'YouTube'],
+        services_descr: {
+            'StatistiquesAnonymes': 'Nous permet d\'améliorer le site en fonction de son utilisation',
+            'YouTube': 'Affiche les vidéos du service youtube.com'
+        }
     });
 });
 </script>
-<script type="text/javascript" src="https://cookie-consent-api.atly.fr/cookie-consent-api.js"></script>
 <script type="text/javascript" src="bootstrap-cookie-consent.dev.js"></script></body>
 </body>
 </html>

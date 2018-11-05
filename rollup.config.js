@@ -8,7 +8,7 @@ const plugins = [
   commonjs({
     include: [
         "src/BootstrapCookieConsent.js",
-        "node_modules/cookie-consent-api/src/index.js" ,
+        "node_modules/cookie-consent-api/**" ,
         "node_modules/events/**" ,
         "node_modules/js-cookie/**"
     ],
