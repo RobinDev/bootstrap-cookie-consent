@@ -38,27 +38,8 @@ var devConfig = Object.assign({}, config, {
         port: 3000
     },
 });
-var prodConfig = Object.assign({}, config,{
-    mode: 'production',
-    output: Object.assign({}, config.output, {
-        filename: 'bootstrap-cookie-consent.js'
-    }),
-    optimization: {
-		minimize: false
-	}
-});
-var minConfig = Object.assign({}, config,{
-    mode: 'production',
-    output: Object.assign({}, config.output, {
-        filename: 'bootstrap-cookie-consent.min.js'
-    }),
-    plugins:
-        [
-            new MinifyPlugin({}, {comments: false})
-        ]
-});
 
 // Return Array of Configurations
 module.exports = [
-    devConfig, prodConfig, minConfig,
+    devConfig
 ];
