@@ -27,7 +27,7 @@ module.exports = {
   input: path.resolve(__dirname, 'src/BootstrapCookieConsent.js'),
   output: {
     file: path.resolve(__dirname, 'dist/bootstrap-cookie-consent.js'),
-    format: 'iife',
+    format: 'umd',
     name: 'BootstrapCookieConsent'
   },
   plugins
