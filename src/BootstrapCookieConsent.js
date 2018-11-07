@@ -5,6 +5,8 @@
  */
 import CookieConsentApi from '../node_modules/cookie-consent-api/src/index.js';
 
+var bsn = require("bootstrap.native");
+
 class BootstrapCookieConsent
 {
 
@@ -21,7 +23,7 @@ class BootstrapCookieConsent
             'details_title'   : 'Vie Privée',
             'details_text'    : 'Vous pouvez accepter ou refuster l\'utilisation sur ce site de certains services.',
             'checkbox_class'  : 'switch-sm',
-            'method'          : 1, // 0: native boostrap, 1:jquery bootstrap
+            'method'          : 1, // 0: native boostrap, 1:jquery bootstrap or (string) 'bsn'
             services: [],
             services_descr: {}
         };
@@ -50,8 +52,7 @@ class BootstrapCookieConsent
                     $('#cookie-modal').modal('toggle');
                 } else {
                     let modal = document.getElementById('cookie-modal');
-
-                    let iModal = new Modal(modal);
+                    let iModal = typeof this._conf.method == 'string' ? new eval(this._conf.method + '.Modal(modal)') : new Modal(modal);
                     iModal.show();
                 }
             });
@@ -76,7 +77,6 @@ class BootstrapCookieConsent
         document.body.insertBefore(banner, document.body.firstChild);
 
         document.getElementById(this._conf.accept_id).addEventListener('click', ()=>{
-            console.log('event click');
             this.cookieConsent.acceptAll();
             this._hideBanner();
         });

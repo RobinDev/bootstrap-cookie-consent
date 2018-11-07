@@ -774,6 +774,8 @@
 	 * @license The MIT License (MIT)
 	 */
 
+	var bsn = require("bootstrap.native");
+
 	class BootstrapCookieConsent {
 	  constructor(conf = {}) {
 	    const defaultConf = {
@@ -788,7 +790,7 @@
 	      'details_text': 'Vous pouvez accepter ou refuster l\'utilisation sur ce site de certains services.',
 	      'checkbox_class': 'switch-sm',
 	      'method': 1,
-	      // 0: native boostrap, 1:jquery bootstrap
+	      // 0: native boostrap, 1:jquery bootstrap or (string) 'bsn'
 	      services: [],
 	      services_descr: {}
 	    };
@@ -812,7 +814,7 @@
 	          $('#cookie-modal').modal('toggle');
 	        } else {
 	          let modal = document.getElementById('cookie-modal');
-	          let iModal = new Modal(modal);
+	          let iModal = typeof this._conf.method == 'string' ? new eval(this._conf.method + '.Modal(modal)') : new Modal(modal);
 	          iModal.show();
 	        }
 	      });
@@ -835,7 +837,6 @@
 	    banner.innerHTML = this._conf.banner_text + ' <button class="btn btn-success btn-gradient btn-sm" id="' + this._conf.accept_id + '">' + this._conf.button_text + '</button> <a href="' + this._conf.link_more_info + '">' + this._conf.more_info_label + '</a>';
 	    document.body.insertBefore(banner, document.body.firstChild);
 	    document.getElementById(this._conf.accept_id).addEventListener('click', () => {
-	      console.log('event click');
 	      this.cookieConsent.acceptAll();
 
 	      this._hideBanner();
