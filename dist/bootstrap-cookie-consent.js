@@ -1,5 +1,8 @@
-var BootstrapCookieConsent = (function () {
-	'use strict';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.BootstrapCookieConsent = factory());
+}(this, (function () { 'use strict';
 
 	function createCommonjsModule(fn, module) {
 		return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -859,4 +862,4 @@ var BootstrapCookieConsent = (function () {
 
 	return BootstrapCookieConsent;
 
-}());
+})));
