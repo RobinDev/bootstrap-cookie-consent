@@ -71,6 +71,7 @@ new BootstrapCookieConsent({
     cookieName: 'cookie_consent_settings', // From cookie-consent-api
     cookieDuration: 365,
     cookieDomain: null,
+    method: 1, // 0: native bootstrap, 1: jquery (classic) bootstrap
 });
 ```
 

@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-cookie-consent",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Simple and light Boostrap banner and modal to manage cookies like the cnil advices it (RGPD)",
   "author": "Robin D. <contact@robin-d.fr>",
   "license": "MIT",
